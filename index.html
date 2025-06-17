@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Close Friends</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      background-attachment: fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #2d2d2d;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .friend-box {
+      background: white;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 350px;
+      margin: 15px 0;
+      padding: 20px;
+      font-size: 1.2em;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border: 2px solid transparent;
+    }
+
+    .friend-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      border-color: #f9b457;
+    }
+
+    .content {
+      margin-top: 30px;
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 700px;
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #444;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .content h2 {
+      margin-top: 0;
+      color: #f19143;
+    }
+
+    .feeling {
+      background-color: #fff7ed;
+      border-left: 5px solid #f19143;
+      padding: 10px 15px;
+      margin: 8px 0;
+      border-radius: 8px;
+      font-style: italic;
+    }
+
+    @media (max-width: 480px) {
+      .friend-box {
+        font-size: 1em;
+        padding: 15px;
+      }
+
+      .content {
+        font-size: 1em;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>My Close Friends(best friends)</h1>
+
+  <div class="friend-box" onclick="showProfile('hemanth')">1. Hemanth</div>
+  <div class="friend-box" onclick="showProfile('gnan')">2. Gnan </div>
+  <div class="friend-box" onclick="showProfile('deepak')">3. deepak</div>
+  <div class="friend-box" onclick="showProfile('yuva')">4. Yuva</div>
+  <div class="friend-box" onclick="showProfile('bharath')">5. bharath</div>
+  <div class="friend-box" onclick="showProfile('gopika')">6. gopika</div>
+
+  <div class="content" id="profileContent">
+    <p>Click on a friend to view what I feel about them 💬</p>
+  </div>
+
+  <script>
+    const profiles = {
+      hemanth: `
+        <h2>Hemanth</h2>
+        <div class="feeling">first trusted person among all friends</div>
+        <div class="feeling">naa sontha anna...chaala manchi vaadu,em chesina iddharam chese dorikipotham chinnpati nundi 🤝</div>
+        <div class="feeling">nakkana chaala manchi vaadu...asalu chaduvuthaadu veedu....super ante super gaa chaduvuthaadu,concept easy gaa grasp cheseygalthadu anni cheppistaadu concepts 😊</div>
+        <div class="feeling">He understands me better than most people 💡</div>
+        <div class="feeling">intelligent person</div>
+        <div class="feeling">chaala ardham chesukuntaadu nannu andharikanna....</div>
+        <div class="feeling">snakes la vunde friends kanna brothers ey melu </div>
+        <div class="feeling">Chaala baaga chaduvukoni manchi position lo vundalani korukuntunna 📚</div>
+      `,
+      gnan: `
+        <h2>Gnan akkaa/pandaaa 😇</h2>
+        <div class="feeling">second most trusted person among all friends</div>
+        <div class="feeling">naa sontha akka la feel avuthanu...of course she is a part of my family too 😊❤️</div>
+        <div class="feeling">Chaala matured na akka...but I still remember nannu maths study hour lo lepaaru meeru 😂📚🤕 chaala kopam vacchindhi 😄🤣</div>
+        <div class="feeling">Chaala baaga matladutaaru naatho...caring kuda ❤️</div>
+        <div class="feeling">Meeru idhi chaduvuthunte...oka msg akka: <strong>"Baaga chaduvukundham iddhaaram 😊📖✨"</strong></div>
+        <div class="feeling">Meeku thelisinavi naaku share cheyandi...naaku thelisindhi nenu chare chestha, meeke ekkuva thelusu 🔥</div>
+        <div class="feeling">Ayina asalu anukole akka...meetho intha baaga matladagalanu ani, chaala manchi ammai naa akka 🌟</div>
+        <div class="feeling">Ippudu clg works valla busy aypoyaru ani telusukunna 📚...baaga chadavandi akkaa, all the best pandaa 😄</div>
+        <div class="feeling">Chaala baaga chaduvukoni manchi position lo vundalani korukuntunna 📚</div>
+        
+      `,
+      deepak: `
+        <h2>deepak</h2>
+        <div class="feeling">3rd most trusted person among friends</div>
+        <div class="feeling">Chaala matured ayyadu,baaga matured gaa matladuthaadu,ah matallo anni buthule ekkuva 😄🤣</div>
+        <div class="feeling">motivation baaga isthaadu, low gaa feel ayyinappudu veedi intike veltunna</div>
+        <div class="feeling">15 years nundi friends anamaata memu😂</div>
+        <div class="feeling">extrovert ki defintion veedaithe 😂❤️</div>
+        <div class="feeling">csk fans😂 memu chinnapti nundi ,10 years kanna ekkuve</div>
+        <div class="feeling">Chaala baaga chaduvuko raaa ,ece asale ramp 😄🤣📚</div>
+      `,
+      yuva: `
+        <h2>Yuva</h2>
+        <div class="feeling">4th most trusted person among friends 😄</div>
+        <div class="feeling">Yuva kuda manchi ammai, chaala supportive and motivation isthu vuntundhi hardest time lo</div>
+        <div class="feeling">Chaala matured Yuva, baga matladuthaaru</div>
+        <div class="feeling">Joke joke gaa baaga matladuthundhi 😄🤣</div>
+        <div class="feeling">Mee bf tho parichayam cheypinchu raa 😂</div>
+        <div class="feeling">Chaala caring Yuva sisteruuu ❤️</div>
+        <div class="feeling">csk fan😂,next koduthundhi lendi cup 😂</div>
+        <div class="feeling">Chaala baaga chaduvukoni manchi position lo vundalani korukuntunna 📚</div>
+      `,
+      bharath: `
+        <h2>Bharath</h2>
+        <div class="feeling">5th most trusted person among friends 😄</div>
+        <div class="feeling">8th class  starting lo rbs join ayyinappudu  ontari gaa unna,ee bot gaade anamaata first matladindhi naatho </div>
+        <div class="feeling">8th,9th,10th lo ela unnado same alane matladutaadu ippudu kuda,kaani busy ee madhya friends tho,kottha friends vaccharemo</div>
+        <div class="feeling">chaala caring,matured,baaga matladuthaadu </div>
+        <div class="feeling">exams jarugutunnai anukuntaa....all the best raa 😄 </div>
+        <div class="feeling"> next time tirupathi vacchina tarvata intiki raa matladudham antha😄🤣  </div>
+        
+      `,
+      gopika: `
+        <h2>Gopika</h2>
+        <div class="feeling">6th most trusted person among friends 😄</div>
+        <div class="feeling"> 8th class lo ammailalo first matladindhi  gopika sister ey,formative assesment-1 lo enni points ani 😄🤣</div>
+        <div class="feeling">chaala baaga matladuthaaru gopika sisteruuuu..,same clg kuda 😄🤣 </div>
+        <div class="feeling"> self report aits lo icchetappudu chusi evaro anukunna...chusthe meeru shock ayya nenu 😄🤣 </div>
+        <div class="feeling">Chaala baaga chaduvukoni manchi position lo vundalani korukuntunna 📚😄 </div>
+        <div class="feeeling">all the best sisteruuu 😄 </div>
+        
+        
+      `
+    };
+
+    function showProfile(name) {
+      document.getElementById('profileContent').innerHTML = profiles[name];
+    }
+  </script>
+</body>
+</html>
